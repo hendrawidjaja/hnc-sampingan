@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+/* eslint-disable no-unused-vars */
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "react-query";
+import GlobalStyles from "./styles/global";
+import Home from "./pages/home/index";
+import NavBar from "./components/navbar/index";
+
+//Users should be able to see the news list(title, score, source, etc) and it’s comment. Hackernews categorizes the data to story, news, comment, jobs, ask, poll, best, etc.
+//You can check the api documentation at ​https://github.com/HackerNews/API
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <QueryClientProvider client={queryClient}>
+        {/* adding some global styling */}
+        <GlobalStyles />
+
+        <Router>
+          {/* called navbar */}
+          <NavBar />
+
+          {/* manage the routes */}
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="" exact component={Home} />
+          </Switch>
+        </Router>
+      </QueryClientProvider>
     </div>
   );
 }
