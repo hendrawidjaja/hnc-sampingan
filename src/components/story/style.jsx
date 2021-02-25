@@ -35,3 +35,14 @@ export const WrapperTiming = styled.div`
 export const Divider = styled.span`
   padding: 0 0.25rem;
 `;
+
+export const WrapperTitle = styled.div`
+  display: flex;
+  position: relative;
+`;
+
+export const Url = styled.span`
+  position: relative;
+  padding: 0 0.25rem;
+  cursor: pointer;
+`;
