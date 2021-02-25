@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import { getStoryIds } from "../../../src/rest/api";
 import { useQuery } from "react-query";
-import { Section, H3, WrapperStory } from "./style";
+import { Section, H3, WrapperStory, WrapperUl } from "./style";
 import LoadingDots from "../../atomic/loading/index";
 import Story from "../../components/story";
 
@@ -17,11 +17,7 @@ const Home = () => {
 
   return (
     <Section
-      className={
-        isLoading || isError
-          ? "section-content is-loading-error"
-          : "section-content"
-      }>
+      className={isLoading || isError ? "section-content is-loading-error" : "section-content"}>
       {isLoading && (
         <H3>
           Loading
@@ -38,10 +34,12 @@ const Home = () => {
         </>
       )}
       {data && (
-        <WrapperStory>
-          {data?.data.map((item, index) => {
-            return <Story key={index} id={item} />;
-          })}
+        <WrapperStory className="wrapper">
+          <WrapperUl className="wrapper-list">
+            {data?.data.map((item, index) => {
+              return <Story key={index} id={item} />;
+            })}
+          </WrapperUl>
         </WrapperStory>
       )}
     </Section>
