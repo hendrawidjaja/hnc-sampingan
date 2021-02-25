@@ -1,18 +1,16 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from "react";
-import { getStoryIds } from "../../../src/rest/api";
+import { baseURL } from "../../../src/rest/api";
 import { useQuery } from "react-query";
-import { Section, H3, WrapperStory, WrapperUl } from "./style";
+import axios from "axios";
 import LoadingDots from "../../atomic/loading/index";
 import Story from "../../components/story";
+import { Section, H3, WrapperStory, WrapperUl } from "./style";
 
 const Home = () => {
-  const { isLoading, isError, data, isPreviousData } = useQuery(
-    ["stories"],
-    () => getStoryIds(),
-    {
-      keepPreviousData: true,
-    }
+  const { isLoading, isError, data, isPreviousData } = useQuery("newStories", () =>
+    axios.get(`${baseURL}newstories.json`).then((res) => res.data)
   );
 
   return (
@@ -36,9 +34,9 @@ const Home = () => {
       {data && (
         <WrapperStory className="wrapper">
           <WrapperUl className="wrapper-list">
-            {data?.data.map((item, index) => {
-              return <Story key={index} id={item} />;
-            })}
+            {data?.map((item, index) => (
+              <Story key={index} id={item} />
+            ))}
           </WrapperUl>
         </WrapperStory>
       )}

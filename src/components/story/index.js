@@ -1,13 +1,15 @@
-/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
-import { getStory } from "../../rest/api";
+import { storyURL } from "../../rest/api";
 import { sanitizeUrl } from "../../helper/index";
+import { Link } from "react-router-dom";
 import moment from "moment";
+import axios from "axios";
 import {
   A,
-  Title,
+  H3,
   WrapperLi,
   WrapperPoints,
   WrapperInformation,
@@ -19,67 +21,55 @@ import {
   Url,
 } from "./style";
 
-const Story = (props) => {
-  const [story, setStory] = useState({});
-  const { id } = props;
-
-  const { isLoading, isError, data, isPreviousData } = useQuery(
-    ["story"],
-    () => getStory(id),
-    {
-      keepPreviousData: true,
-    }
+const Story = ({ id }) => {
+  const { isLoading, isError, data, isPreviousData } = useQuery(["story", id], () =>
+    axios.get(`${storyURL + id}.json`).then((res) => res.data)
   );
 
-  useEffect(() => {
-    getStory(id).then((data) => {
-      return data && setStory(data);
-    });
-  }, []);
-
   return (
-    story && (
-      <WrapperLi className="list-item">
-        {story?.title && story?.url && (
-          <WrapperTitle>
-            <A href={story?.url} className="href">
-              <Title className="title">{story?.title}</Title>
-            </A>
+    <>
+      {data && (
+        <WrapperLi className="list-item">
+          {data?.url && (
+            <WrapperTitle>
+              <A href={data?.url} className="href">
+                <H3 className="title">{data?.title}</H3>
+              </A>
 
-            <A href={story?.url}>
-              <Url className="url">
-                <span>({sanitizeUrl(story?.url)})</span>
-              </Url>
-            </A>
-          </WrapperTitle>
-        )}
-
-        <WrapperInformation className="wrapper-information">
-          {story?.score && (
-            <WrapperPoints className="wrapper-score">
-              <span>{story?.score}</span>
-              <span>&nbsp;points</span>
-            </WrapperPoints>
+              <A href={data?.url}>
+                <Url className="url">
+                  <Span>({sanitizeUrl(data?.url)})</Span>
+                </Url>
+              </A>
+            </WrapperTitle>
           )}
 
-          {story?.by && (
-            <WrapperEditor className="wrapper-editor-by">
-              <Span>&nbsp;by {story?.by}</Span>
-            </WrapperEditor>
-          )}
+          <WrapperInformation className="wrapper-information">
+            {data?.score && (
+              <WrapperPoints className="wrapper-score">
+                <Span>{data?.score}</Span>
+                <Span>&nbsp;points</Span>
+              </WrapperPoints>
+            )}
 
-          {story?.by && story?.time && (
-            <Divider classaName="divider">|</Divider>
-          )}
+            {data?.by && (
+              <WrapperEditor className="wrapper-editor-by">
+                <Span>&nbsp;by&nbsp;</Span>
+                <Link to={`/user/${data.by}`}>{data.by}</Link>
+              </WrapperEditor>
+            )}
 
-          {story?.time && (
-            <WrapperTiming className="wrapper-timing">
-              <Span>{moment.unix(story?.time).fromNow()}</Span>
-            </WrapperTiming>
-          )}
-        </WrapperInformation>
-      </WrapperLi>
-    )
+            {data?.by && data?.time && <Divider classaName="divider">|</Divider>}
+
+            {data?.time && (
+              <WrapperTiming className="wrapper-timing">
+                <Span>{moment.unix(data?.time).fromNow()}</Span>
+              </WrapperTiming>
+            )}
+          </WrapperInformation>
+        </WrapperLi>
+      )}
+    </>
   );
 };
 
