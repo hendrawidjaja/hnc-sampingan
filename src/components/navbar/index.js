@@ -5,11 +5,13 @@ import { H3, MenuList, Navbar, Span, Submenu } from "./style";
 const NavBar = () => {
   return (
     <Navbar className="nav">
-      <H3>HackerNews.</H3>
+      <H3>
+        <Link to="/">HackerNews.</Link>
+      </H3>
 
       <Submenu className="submenu">
         <MenuList className="menu-list">
-          <Link to="">new</Link>
+          <Link to="/">new</Link>
         </MenuList>
 
         <Span>|</Span>

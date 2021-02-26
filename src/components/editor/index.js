@@ -1,7 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
-import { useEffect, useState } from "react";
 import axios from "axios";
 import { useQuery } from "react-query";
 import { useRouteMatch } from "react-router-dom";
@@ -18,16 +16,19 @@ const Editor = () => {
 
   const { isLoading, isError, data, isPreviousData } = useQuery(
     ["by", match.params.editor],
-    () => axios.get(`${editorURL + match.params.editor}.json`).then((res) => res.data)
+    () =>
+      axios
+        .get(`${editorURL + match.params.editor}.json`)
+        .then((res) => res.data)
   );
-
-  useEffect(() => {
-    console.log(data.submitted);
-  }, []);
 
   return (
     <Section
-      className={isLoading || isError ? "section-content is-loading-error" : "section-content"}>
+      className={
+        isLoading || isError
+          ? "section-content is-loading-error"
+          : "section-content"
+      }>
       {isLoading && (
         <H3>
           Loading profile

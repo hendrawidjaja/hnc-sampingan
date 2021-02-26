@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { COLOR, DEVICE } from "../../styles/base";
 
+export const MenuList = styled.li``;
+
 export const Navbar = styled.div`
   background-color: ${COLOR.Navbar};
   display: flex;
@@ -26,18 +28,16 @@ export const Submenu = styled.ul`
   flex-direction: row;
 
   @media ${DEVICE.minDesktop} {
-    margin-left: 1.5rem;
+    margin-left: 1.25rem;
   }
 `;
 
-export const MenuList = styled.li``;
-
 export const Span = styled.span`
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+  margin-left: 0.3rem;
+  margin-right: 0.3rem;
 
   @media ${DEVICE.minDesktop} {
-    margin-left: 0.75rem;
-    margin-right: 0.75rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
   }
 `;
