@@ -32,6 +32,13 @@
 ```
   npm i    
 ```
+  6. Get things running
+```
+  npm start
+  or
+  yarn start
+```
+  
 
 
 #### This repo of test is property of Hendra Widjaja, Incase you have a question, feel freen to contact me hendrawidjaja@live.de
