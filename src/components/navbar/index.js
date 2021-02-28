@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ThemeSwitcher from "../../atomic/ThemeSwitcher";
 import { H3, MenuList, Navbar, Span, Submenu } from "./style";
 
 const NavBar = () => {
@@ -43,6 +44,9 @@ const NavBar = () => {
         <MenuList className="menu-list">
           <Link to="">submit</Link>
         </MenuList>
+
+        <Span>|</Span>
+        <ThemeSwitcher />
       </Submenu>
     </Navbar>
   );

@@ -3,8 +3,16 @@ import styled from "styled-components";
 import { COLOR, DEVICE, FONT } from "../../styles/base";
 
 export const WrapperLi = styled.li`
+  display: flex;
   position: relative;
-  margin-top: 1rem;
+
+  &:not(:first-of-type) {
+    margin-top: 0.5rem;
+
+    @media ${DEVICE.minDesktop} {
+      margin-top: 0.8rem;
+    }
+  }
 
   a {
     color: ${COLOR.DarkGrey};
@@ -12,9 +20,27 @@ export const WrapperLi = styled.li`
   }
 `;
 
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+`;
+
+export const IndexNumber = styled.span`
+  ${FONT.Span};
+  color: ${COLOR.DarkGrey};
+  margin-right: 0.3rem;
+  position: relative;
+`;
+
 export const A = styled.a`
   display: flex;
   position: relative;
+  flex-direction: column;
+
+  @media ${DEVICE.minDesktop} {
+    flex-direction: row;
+  }
 `;
 
 export const H4 = styled.h4`
@@ -25,8 +51,11 @@ export const H4 = styled.h4`
 export const SanitizeUrl = styled.span`
   ${FONT.ListTitle};
   color: ${COLOR.DarkGrey};
-  padding: 0 0.3rem;
   position: relative;
+
+  @media ${DEVICE.minDesktop} {
+    padding: 0 0.3rem;
+  }
 `;
 
 export const WrapperInformation = styled.div`

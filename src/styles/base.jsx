@@ -43,12 +43,10 @@ export const SPACING = {
   `,
 
   Content: `
-    padding-left: 0.4rem;
-    padding-right: 0.4rem;
+    padding: 0.5rem 0.4rem;
 
     @media ${DEVICE.minDesktop} {
-      padding-left: 1.2rem;
-      padding-right: 1.2rem;
+      padding: 1.2rem 1.5rem;
     }
   `,
 };

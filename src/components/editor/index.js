@@ -5,7 +5,7 @@ import { useQuery } from "react-query";
 import { useRouteMatch } from "react-router-dom";
 import { editorURL } from "../../rest/api.js";
 import { Wrapper, WrapperSubmitted, Section, H3, Span, Value } from "./style";
-import LoadingDots from "../../atomic/loading/index";
+import LoadingDots from "../../atomic/Loading/index";
 
 const Editor = () => {
   let match = useRouteMatch({
@@ -16,19 +16,12 @@ const Editor = () => {
 
   const { isLoading, isError, data, isPreviousData } = useQuery(
     ["by", match.params.editor],
-    () =>
-      axios
-        .get(`${editorURL + match.params.editor}.json`)
-        .then((res) => res.data)
+    () => axios.get(`${editorURL + match.params.editor}.json`).then((res) => res.data)
   );
 
   return (
     <Section
-      className={
-        isLoading || isError
-          ? "section-content is-loading-error"
-          : "section-content"
-      }>
+      className={isLoading || isError ? "section-content is-loading-error" : "section-content"}>
       {isLoading && (
         <H3>
           Loading profile

@@ -11,6 +11,10 @@ export const Navbar = styled.div`
   flex-direction: column;
   position: relative;
 
+  a {
+    ${FONT.Span};
+  }
+
   @media ${DEVICE.minDesktop} {
     align-items: center;
     flex-direction: row;
@@ -27,6 +31,7 @@ export const Submenu = styled.ul`
   align-items: center;
   display: flex;
   flex-direction: row;
+  width: 100%;
 
   @media ${DEVICE.minDesktop} {
     margin-left: 1.25rem;
