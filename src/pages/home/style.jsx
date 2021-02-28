@@ -1,11 +1,12 @@
 /* eslint-disable no-unused-vars */
 import styled from "styled-components";
-import { COLOR, DEVICE } from "../../styles/base";
+import { COLOR, FONT, SPACING } from "../../styles/base";
 
 export const Section = styled.div`
+  ${SPACING.Content};
+  background-color: ${COLOR.Content};
   display: flex;
   position: relative;
-  background-color: #f6f6ef;
 
   &.is-loading-error {
     align-items: center;
@@ -14,16 +15,8 @@ export const Section = styled.div`
   }
 `;
 
-export const H3 = styled.h3`
-  @media ${DEVICE.minDesktop} {
-    font-size: 2rem;
-  }
-`;
-
-export const WrapperStory = styled.div`
-  display: flex;
-  position: relative;
-  flex-wrap: wrap;
+export const H4 = styled.h4`
+  ${FONT.Loading};
 `;
 
 export const WrapperUl = styled.ul`

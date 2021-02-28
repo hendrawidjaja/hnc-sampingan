@@ -1,15 +1,14 @@
 import styled from "styled-components";
-import { COLOR, DEVICE } from "../../styles/base";
+import { COLOR, DEVICE, FONT, SPACING } from "../../styles/base";
 
 export const MenuList = styled.li``;
 
 export const Navbar = styled.div`
+  ${SPACING.navbar};
+  ${SPACING.navbarHeight};
   background-color: ${COLOR.Navbar};
   display: flex;
   flex-direction: column;
-  min-height: 1.5rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
   position: relative;
 
   @media ${DEVICE.minDesktop} {
@@ -19,6 +18,8 @@ export const Navbar = styled.div`
 `;
 
 export const H3 = styled.h3`
+  ${FONT.H3};
+  color: ${COLOR.navBarTitle};
   font-weight: bold;
 `;
 

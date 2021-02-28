@@ -6,18 +6,19 @@ import { sanitizeUrl } from "../../helper/index";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import axios from "axios";
-import {
+import
+  {
   A,
-  H3,
+  H4,
   WrapperLi,
   WrapperPoints,
   WrapperInformation,
   WrapperEditor,
   WrapperTiming,
-  Span,
   Divider,
   WrapperTitle,
-  Url,
+  SanitizeUrl,
+  Points,
 } from "./style";
 
 const Story = ({ id }) => {
@@ -31,33 +32,23 @@ const Story = ({ id }) => {
       {data && (
         <WrapperLi className="list-item">
           {data?.url && (
-            <WrapperTitle>
-              <A href={data?.url} className="href">
-                <H3 className="title">{data?.title}</H3>
-              </A>
+            <A href={data?.url} className="href">
+              <H4 className="title">{data?.title}</H4>
 
-              <A href={data?.url}>
-                <Url className="url">
-                  <Span>({sanitizeUrl(data?.url)})</Span>
-                </Url>
-              </A>
-            </WrapperTitle>
+              <SanitizeUrl className="url">
+                ({sanitizeUrl(data?.url)})
+              </SanitizeUrl>
+            </A>
           )}
 
           <WrapperInformation className="wrapper-information">
             {data?.score && (
-              <WrapperPoints className="wrapper-score">
-                <Span>{data?.score}</Span>
-                <Span>&nbsp;points</Span>
-              </WrapperPoints>
+              <Points className="wrapper-score">
+                {data?.score} points by&nbsp;
+              </Points>
             )}
 
-            {data?.by && (
-              <WrapperEditor className="wrapper-editor-by">
-                <Span>&nbsp;by&nbsp;</Span>
-                <Link to={`/user/${data.by}`}>{data.by}</Link>
-              </WrapperEditor>
-            )}
+            {data?.by && <Link to={`/user/${data.by}`}>{data.by}</Link>}
 
             {data?.by && data?.time && (
               <Divider classaName="divider">|</Divider>
@@ -65,7 +56,7 @@ const Story = ({ id }) => {
 
             {data?.time && (
               <WrapperTiming className="wrapper-timing">
-                <Span>{moment.unix(data?.time).fromNow()}</Span>
+                {moment.unix(data?.time).fromNow()}
               </WrapperTiming>
             )}
           </WrapperInformation>
