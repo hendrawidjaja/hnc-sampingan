@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 export const COLOR = {
   Navbar: `rgba(255, 102, 0, 1)`,
+  Span: `#828282`,
 };
 
 export const DEVICE = {

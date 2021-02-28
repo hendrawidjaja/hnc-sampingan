@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
-import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { storyURL } from "../../rest/api";
 import { sanitizeUrl } from "../../helper/index";
@@ -22,8 +21,9 @@ import {
 } from "./style";
 
 const Story = ({ id }) => {
-  const { isLoading, isError, data, isPreviousData } = useQuery(["story", id], () =>
-    axios.get(`${storyURL + id}.json`).then((res) => res.data)
+  const { isLoading, isError, data, isPreviousData } = useQuery(
+    ["story", id],
+    () => axios.get(`${storyURL + id}.json`).then((res) => res.data)
   );
 
   return (
@@ -59,7 +59,9 @@ const Story = ({ id }) => {
               </WrapperEditor>
             )}
 
-            {data?.by && data?.time && <Divider classaName="divider">|</Divider>}
+            {data?.by && data?.time && (
+              <Divider classaName="divider">|</Divider>
+            )}
 
             {data?.time && (
               <WrapperTiming className="wrapper-timing">

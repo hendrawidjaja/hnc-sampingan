@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import { createGlobalStyle } from "styled-components";
-import { DEVICE, DEVICEGUTTER } from "./base";
+import { DEVICEGUTTER } from "./base";
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -30,24 +30,12 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
   }
 
-  li {
-    @media ${DEVICE.minDesktop} {
-    }
-  }
-
   a {
-    color: #000000;
-    display: flex;
-    font-size: calc(10px + 6 * ((100vw - 320px) / 1920));
-    min-height: 12px;
     text-decoration: none;
+    cursor: pointer;
 
     &:visited {
       color: inherit;
-    }
-
-    @media and ${DEVICE.minDesktop} {
-      font-size: 16px;
     }
   }
 
