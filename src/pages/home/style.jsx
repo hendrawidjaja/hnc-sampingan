@@ -6,7 +6,9 @@ export const Section = styled.div`
   ${SPACING.Content};
   background-color: ${COLOR.Content};
   display: flex;
+  overflow: hidden;
   position: relative;
+  width: 100%;
 
   &.is-loading-error {
     align-items: center;
@@ -23,4 +25,5 @@ export const WrapperUl = styled.ul`
   display: flex;
   flex-direction: column;
   position: relative;
+  width: 100%;
 `;

@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Divider from "../../atomic/Divider";
 import ThemeSwitcher from "../../atomic/ThemeSwitcher";
-import { H3, MenuList, Navbar, Span, Submenu } from "./style";
+import { H3, MenuList, Navbar, Submenu } from "./style";
 
 const NavBar = () => {
   return (
@@ -14,38 +15,37 @@ const NavBar = () => {
         <MenuList className="menu-list">
           <Link to="/">new</Link>
         </MenuList>
+        <Divider />
 
-        <Span>|</Span>
         <MenuList className="menu-list">
           <Link to="">past</Link>
         </MenuList>
+        <Divider />
 
-        <Span>|</Span>
         <MenuList className="menu-list">
           <Link to="">comments</Link>
         </MenuList>
+        <Divider />
 
-        <Span>|</Span>
         <MenuList className="menu-list">
           <Link to="">ask</Link>
         </MenuList>
+        <Divider />
 
-        <Span>|</Span>
         <MenuList className="menu-list">
           <Link to="">show</Link>
         </MenuList>
+        <Divider />
 
-        <Span>|</Span>
         <MenuList className="menu-list">
           <Link to="">jobs</Link>
         </MenuList>
+        <Divider />
 
-        <Span>|</Span>
         <MenuList className="menu-list">
           <Link to="">submit</Link>
         </MenuList>
 
-        <Span>|</Span>
         <ThemeSwitcher />
       </Submenu>
     </Navbar>

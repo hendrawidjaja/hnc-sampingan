@@ -15,6 +15,7 @@ const blink = keyframes`
 export const LoadingDots = styled.div`
   display: inline-flex;
   position: relative;
+
   span {
     &:nth-child(2n) {
       animation-delay: 0.2s;

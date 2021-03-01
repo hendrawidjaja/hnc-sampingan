@@ -32,7 +32,3 @@ export const Img = styled.img`
     min-width: 1rem;
   }
 `;
-
-export const Span = styled.span`
-  min-height: 1rem;
-`;

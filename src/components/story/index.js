@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
-import { useQuery } from "react-query";
+import { useQuery, useInfiniteQuery } from "react-query";
 import { storyURL } from "../../rest/api";
 import { sanitizeUrl } from "../../helper/index";
 import { Link } from "react-router-dom";
@@ -16,7 +16,7 @@ import {
   Wrapper,
   WrapperInformation,
   WrapperLi,
-  WrapperTiming,
+  WrapperTiming
 } from "./style";
 
 const Story = ({ index, id }) => {

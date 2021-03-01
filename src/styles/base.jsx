@@ -5,14 +5,14 @@ export const COLOR = {
   DarkGrey: `rgba(130, 130, 130, 1)`,
   Span: `rgba(130, 130, 130, 1)`,
   ListTitle: `color: rgba(64, 64, 64, 0.9)`,
-  Divider: `rgba(162, 162, 162, 1)`,
+  Divider: `rgba(162, 162, 162, 1)`
 };
 
 export const DEVICE = {
   minMobileS: `(min-width: 20rem)`,
   minMobileL: `(min-width: 25.875rem)`,
   minTablet: `(min-width: 48rem)`,
-  minDesktop: `(min-width: 62.25rem)`,
+  minDesktop: `(min-width: 62.25rem)`
 };
 
 export const DEVICEGUTTER = `
@@ -25,30 +25,27 @@ export const DEVICEGUTTER = `
 
 export const SPACING = {
   navbarHeight: `
-    min-height: 1.5rem;
 
     @media ${DEVICE.minDesktop} {
-      min-height: 1.7rem;
     }
   `,
 
   navbar: `
-    padding-left: 0.4rem;
-    padding-right: 0.4rem;
+    padding: 0.4rem 0.6rem;
 
     @media ${DEVICE.minDesktop} {
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
+      padding-left: 0.9rem;
+      padding-right: 0.9rem;
     }
   `,
 
   Content: `
-    padding: 0.5rem 0.4rem;
+    padding: 0.4rem 0.6rem;
 
     @media ${DEVICE.minDesktop} {
-      padding: 1.2rem 1.5rem;
+      padding: 1.2rem 0.9rem;
     }
-  `,
+  `
 };
 
 export const FONT = {
@@ -74,10 +71,10 @@ export const FONT = {
   `,
 
   Span: `
-   font-size: 0.75rem;
+   font-size: 0.8125rem;
 
     @media ${DEVICE.minDesktop} {
-      font-size: 0.8125rem;
+      font-size: 0.9rem;
     }
   `,
 
@@ -103,5 +100,5 @@ export const FONT = {
     @media ${DEVICE.minDesktop} {
       font-size: 2rem;
     }
-  `,
+  `
 };
